@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sur Sadhna Music Institute - Summer Camp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #FF7E45;
+            --secondary-color: #FFB347;
+            --accent-color: #5DADE2;
+            --light-color: #F9F3E5;
+            --dark-color: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            overflow-x: hidden;
+            background-color: var(--light-color);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Baloo Bhai 2', cursive;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-left: 10px;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(93, 173, 226, 0.8), rgba(255, 126, 69, 0.8));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .floating-notes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .note {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.7);
+            animation: float 15s infinite linear;
+            font-size: 2rem;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .instrument {
+            position: absolute;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            animation: pulse 3s infinite ease-in-out;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* About Section */
+        #about {
+            padding: 120px 0 80px;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .about-text p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .about-text p strong {
+            color: var(--primary-color);
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Courses Section */
+        #courses {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .course-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .course-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            animation: bounce 2s infinite ease-in-out;
+        }
+        
+        .course-card:nth-child(2n) .course-icon {
+            color: var(--accent-color);
+            animation-delay: 0.3s;
+        }
+        
+        .course-card:nth-child(3n) .course-icon {
+            color: var(--secondary-color);
+            animation-delay: 0.6s;
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .course-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .course-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Gallery Section */
+        #gallery {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--primary-color);
+        }
+        
+        /* Director's Note */
+        #director {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .director-note {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .director-note::before {
+            content: '"';
+            position: absolute;
+            top: -30px;
+            left: 20px;
+            font-size: 8rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        .director-note p {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .director-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        /* Teacher Section */
+        #teacher {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .teacher-profile {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-top: 50px;
+        }
+        
+        .teacher-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .teacher-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .teacher-info {
+            flex: 2;
+            padding: 40px;
+        }
+        
+        .teacher-info h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .teacher-info h4 {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+        
+        .teacher-info p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        /* Contact Section */
+        #contact {
+            padding: 80px 0;
+            background-color: white;
+            position: relative;
+        }
+        
+        .admission-banner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            animation: pulse-banner 2s infinite;
+        }
+        
+        @keyframes pulse-banner {
+            0% {
+                background-color: var(--primary-color);
+            }
+            50% {
+                background-color: var(--secondary-color);
+            }
+            100% {
+                background-color: var(--primary-color);
+            }
+        }
+        
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            gap: 30px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            min-width: 40px;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .contact-text p {
+            color: #666;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            margin-right: 15px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            background-color: var(--accent-color);
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+        }
+        
+        .contact-form h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 30px 0;
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+        }
+        
+        .footer-content p {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .header-container {
+                padding: 0 15px;
+            }
+            
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: rgba(255, 255, 255, 0.95);
+                transition: left 0.3s ease;
+                z-index: 999;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .about-content, .contact-info {
+                flex-direction: column;
+            }
+            
+            .courses-grid, .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .director-note p {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .courses-grid, .gallery-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Sur <span>Sadhna</span></h1>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#teacher">Teacher</a></li>
+                    <li><a href="#director">Director</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="floating-notes" id="floating-notes">
+            <!-- Notes will be added dynamically with JavaScript -->
+        </div>
+        <div class="hero-content">
+            <h1>🎶 Sur Sadhna Summer Music Camp 🎶</h1>
+            <p>Where melodies meet passion – Join the rhythm this summer</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>Sur Sadhna Music Institute</strong>, led by <strong>Aditya Sharma</strong>, is a vibrant space for music lovers in <strong>Jaipur</strong>. With over a decade of musical expertise, Aditya brings a blend of traditional and modern training.</p>
+                    <p>Our camp welcomes all age groups to explore the world of music with joy, structure, and creativity. We believe that music is a universal language that connects souls and transcends barriers.</p>
+                    <p>At Sur Sadhna, we focus on nurturing talent in a supportive environment where students can grow at their own pace while developing a deep appreciation for the art of music.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400" alt="Music students learning together" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Courses</h2>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-guitar"></i>
+                    </div>
+                    <h3>Guitar</h3>
+                    <p>From basic chords to advanced fingerstyle, learn to express yourself through six strings.</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon">
+                    🎹
+                    </div>
+                    <h3>Keyboard</h3>
+                    <p>Discover the world of keys with comprehensive lessons on technique and expression.</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Harmonium</h3>
+                    <p>Blend traditional Indian music with modern techniques in our specialized harmonium classes.</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3>Singing</h3>
+                    <p>Find your voice and perfect your pitch with personalized vocal training for all levels.</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-drum"></i>
+                    </div>
+                    <h3>Tabla</h3>
+                    <p>Experience the rhythm of India through classical tabla training with expert guidance.</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-compact-disc"></i>
+                    </div>
+                    <h3>Dance</h3>
+                    <p>Express yourself through movement with our energetic and creative dance programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Students in Action</h2>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Student playing guitar" />
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Children in music class" />
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/250" alt="Tabla training session" />
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Keyboard lessons" />
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/350" alt="Vocal training" />
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Students performing" />
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Dance practice" />
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Group music lesson" />
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/250" alt="Student performance" />
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/350" alt="Music camp activities" />
+                </div>
+            </div>
+            <div class="gallery-caption">
+                <p>Learning with joy, every step of the way.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Teacher Section -->
+    <section id="teacher">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Our Teacher</h2>
+            </div>
+            <div class="teacher-profile">
+                <div class="teacher-image">
+                    <img src="pic.jpg" alt="Aditya Sharma">
+                </div>
+                <div class="teacher-info">
+                    <h3>Aditya Sharma</h3>
+                    <h4>Founder & Lead Instructor</h4>
+                    <p>Aditya Sharma is a young and experienced music teacher, professional singer, and guitarist. With his extensive knowledge and passion for music, he has successfully trained hundreds of students across various age groups.</p>
+                    <p>His teaching philosophy combines technical excellence with creative expression, ensuring each student develops their unique musical voice while building strong foundational skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Director's Note -->
+    <section id="director">
+        <div class="container">
+            <div class="section-title">
+                <h2>Director's Note</h2>
+            </div>
+            <div class="director-note">
+                <p>"Music is not just taught, it's experienced. At Sur Sadhna, we nurture every note, every voice, and every beat."</p>
+                <p class="director-name">— Aditya Sharma 🎸, Director & Professional Musician</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="admission-banner">🎵 Admission Open 🎵</div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p>9549 456 344</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>adityamusic909.as@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Address</h4>
+                            <p>2/519 Jawahar Nagar, Near Geeta Mandir, Jaipur</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>Sur Sadhna Music Institute</p>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#courses">Courses</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#teacher">Teacher</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <p class="copyright">© 2025 Sur Sadhna Music Institute. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const nav = document.getElementById('nav');
+        
+        mobileMenu.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileMenu.innerHTML = nav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Floating Music Notes
+        const notes = ['♩', '♪', '♫', '♬', '🎵', '🎶'];
+        const instruments = ['🎸', '🎹', '🥁', '🎻', '🎷', '🪗'];
+        const floatingNotes = document.getElementById('floating-notes');
+        
+        // Create floating notes
+        for (let i = 0; i < 20; i++) {
+            const note = document.createElement('div');
+            note.className = 'note';
+            note.textContent = notes[Math.floor(Math.random() * notes.length)];
+            note.style.left = `${Math.random() * 100}%`;
+            note.style.animationDuration = `${15 + Math.random() * 15}s`;
+            note.style.animationDelay = `${Math.random() * 15}s`;
+            floatingNotes.appendChild(note);
+        }
+        
+        // Create floating instruments
+        for (let i = 0; i < 5; i++) {
+            const instrument = document.createElement('div');
+            instrument.className = 'instrument';
+            instrument.textContent = instruments[Math.floor(Math.random() * instruments.length)];
+            instrument.style.left = `${Math.random() * 100}%`;
+            instrument.style.top = `${Math.random() * 100}%`;
+            instrument.style.animationDuration = `${3 + Math.random() * 3}s`;
+            instrument.style.animationDelay = `${Math.random() * 3}s`;
+            floatingNotes.appendChild(instrument);
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+        
+        // Fade-in animation for sections
+        const observerOptions = {
+            threshold: 0.25
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('section:not(#hero)').forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
